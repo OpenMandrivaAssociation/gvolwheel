@@ -8,6 +8,7 @@ Source:		http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 URL:		http://gvolwheel.sourceforge.net/
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gtk+2-devel
+BuildRequires:	intltool
 
 %description
 GVolWheel is application which lets you control the volume easily
