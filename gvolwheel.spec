@@ -1,6 +1,6 @@
 Name:		gvolwheel
 Version:	0.6
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	Lightweight application to control the audio volume
 License:	GPLv3+
 Group:		Sound
