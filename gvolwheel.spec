@@ -1,6 +1,6 @@
 Name:		gvolwheel
-Version:	0.6
-Release:	%mkrel 2
+Version:	0.7
+Release:	%mkrel 1
 Summary:	Lightweight application to control the audio volume
 License:	GPLv3+
 Group:		Sound
@@ -35,6 +35,7 @@ cat > %{buildroot}%{_sysconfdir}/xdg/autostart/%{name}.desktop << EOF
 [Desktop Entry]
 Name=GVolWheel
 Comment=Lightweight audio volume control application
+Comment[ru]=Регулятор громкости
 Exec=gvolwheel
 Terminal=false
 Type=Application
