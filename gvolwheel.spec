@@ -1,13 +1,13 @@
 Name:		gvolwheel
-Version:	0.7
+Version:	1.0
 Release:	%mkrel 1
 Summary:	Lightweight application to control the audio volume
 License:	GPLv3+
 Group:		Sound
 Source:		http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 URL:		http://gvolwheel.sourceforge.net/
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	gtk+2-devel
+BuildRequires:	pkgconfig(alsa)
+BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	intltool
 
 %description
@@ -23,15 +23,15 @@ desktops (Openbox,IceWM,XFCE etc).
 %make
 
 %install
-rm -rf %{buildroot}
-%makeinstall
+%__rm -rf %{buildroot}
+%makeinstall_std
 
 # remove installed doc, instead use %doc for it
-rm -rf %{buildroot}%{_usr}/doc
+%__rm -rf %{buildroot}%{_usr}/doc
 
 # autostart
-mkdir -p %{buildroot}%{_sysconfdir}/xdg/autostart
-cat > %{buildroot}%{_sysconfdir}/xdg/autostart/%{name}.desktop << EOF
+%__mkdir_p %{buildroot}%{_sysconfdir}/xdg/autostart
+%__cat > %{buildroot}%{_sysconfdir}/xdg/autostart/%{name}.desktop << EOF
 [Desktop Entry]
 Name=GVolWheel
 Comment=Lightweight audio volume control application
@@ -45,13 +45,12 @@ EOF
 %find_lang %{name}
 
 %clean
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 
 %files -f %{name}.lang
-%defattr(-,root,root,-)
+%defattr(644,root,root,755)
 %doc COPYING ChangeLog INSTALL README
-%{_bindir}/%{name}
+%attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/pixmaps/%{name}
 %{_sysconfdir}/xdg/autostart/%{name}.desktop
-
 
