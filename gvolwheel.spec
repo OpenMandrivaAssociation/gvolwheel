@@ -6,6 +6,11 @@ License:	GPLv3+
 Group:		Sound
 Source:		http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 URL:		https://gvolwheel.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	intltool
